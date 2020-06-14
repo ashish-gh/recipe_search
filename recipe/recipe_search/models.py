@@ -9,6 +9,8 @@ class Recipe(models.Model):
     direction =  models.CharField(max_length=500)
     ingridents = models.CharField(max_length=500)
     description = models.CharField(max_length=500)
+    last_updated = models.DateTimeField(auto_now_add=True)
+    updated_by = models.ForeignKey(User, null=True, related_name='+', on_delete=models.CASCADE)
 
 
 class Review(models.Model):
@@ -17,6 +19,7 @@ class Review(models.Model):
     updated_at = models.DateTimeField(null=True)
     recipe = models.ForeignKey(Recipe, related_name='reviews', on_delete=models.CASCADE)
     created_by = models.ForeignKey(User, related_name='reviews', on_delete=models.CASCADE)
+    updated_by = models.ForeignKey(User, null=True, related_name='+', on_delete=models.CASCADE)
 
 
 class Rating(models.Model):

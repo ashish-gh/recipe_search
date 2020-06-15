@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from accounts import views as accounts_views
 
 from recipe_search import views
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
+    url(r'^signup/$', accounts_views.signup, name='signup'),
     url(r'^recipe/(?P<pk>\d+)/$', views.recipe, name="recipe"),
     url(r'^recipe/(?P<pk>\d+)/new/$', views.new_review, name='new_review'),
     url(r'^admin/', admin.site.urls),

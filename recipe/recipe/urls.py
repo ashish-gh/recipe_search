@@ -21,6 +21,7 @@ from recipe_search import views
 urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^recipe/(?P<pk>\d+)/$', views.recipe, name="recipe"),
+    url(r'^recipe/(?P<pk>\d+)/new/$', views.new_review, name='new_review'),
     url(r'^admin/', admin.site.urls),
 ]
 

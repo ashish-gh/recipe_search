@@ -5,10 +5,35 @@
 {% endblock %}
 
 {% block breadcrumb %}
-  <li class="breadcrumb-item"><a href="{% url 'home' %}">Recipes</a></li>
+  <li class="breadcrumb-item"><a href="{% url 'home' %}">Recipe</a></li>
   <li class="breadcrumb-item active">{{ recipe.name }}</li>
 {% endblock %}
 
 {% block content %}
-    <!-- just leaving it empty for now. we will add core here soon. -->
+<div class="mb-4">
+  <a href="{% url 'new_review' recipe.pk %}" class="btn btn-primary">New Review</a>
+</div>
+
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Review</th>
+        <th>Starter</th>
+        <th>Replies</th>
+        <th>Views</th>
+        <th>Last Update</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for review in recipe.reviews.all %}
+        <tr>
+          <td>{{ review.review }}</td>
+          <td>{{ review.created_by.username }}</td>
+          <td>0</td>
+          <td>0</td>
+          <td>{{ review.last_updated }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 {% endblock %}

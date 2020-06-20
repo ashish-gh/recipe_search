@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}{{ reviews.review }}{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url 'home' %}">Recipe</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'recipe' reviews.recipe.pk %}">{{ reviews.recipe.name }}</a></li>
+    <li class="breadcrumb-item active">{{ reviews.review }}</li>
+{% endblock %}
+
+{% block content %}
+
+<!-- Reply start -->
+<div class="mb-4">
+    <a href="#" class="btn btn-primary" role="button">Reply</a>
+    </div>
+<!-- Reply end -->
+
+    
+
+    <div class="card mb-2">
+    <div class="card-body p-3">
+        <div class="row">
+        <div class="col-2">
+            <img src="{% static 'img/avatar.svg' %}" alt="" class="w-100">
+            <small>Posts: {{ reviews.recipe.name }}</small>
+        </div>
+        <div class="col-10">
+            <div class="row mb-3">
+            <div class="col-6">
+                <strong class="text-muted">{{ reviews.review}}</strong>
+            </div>
+            <div class="col-6 text-right">
+                <small class="text-muted">1</small>
+            </div>
+            </div>
+            <!-- {{ post. }} -->
+            {% if reviews.recipe.updated_by == user %}
+            <div class="mt-3">
+                <a href="#" class="btn btn-primary btn-sm" role="button">Edit</a>
+            </div>
+            {% endif %}
+        </div>
+        </div>
+    </div>
+    </div>
+    
+
+{% endblock %}

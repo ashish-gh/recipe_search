@@ -27,6 +27,7 @@
     <tbody>
       {% for review in recipe.reviews.all %}
         <tr>
+          <td><a href="{% url 'recipe_review' recipe.pk review.pk %}">{{ review.review }}</a></td>
           <td>{{ review.review }}</td>
           <td>{{ review.created_by.username }}</td>
           <td>0</td>

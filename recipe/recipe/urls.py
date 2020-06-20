@@ -51,7 +51,15 @@ urlpatterns = [
         name='password_change_done'),
 
     url(r'^recipe/(?P<pk>\d+)/$', views.recipe, name="recipe"),
+    
+    # 
     url(r'^recipe/(?P<pk>\d+)/new/$', views.new_review, name='new_review'),
+    
+    # 
+    url(r'^recipe/(?P<pk>\d+)/review/(?P<review_pk>\d+)/$', views.recipe_review, name='recipe_review'),
+
+    # Reply review
+    url(r'^recipe/(?P<pk>\d+)/review/(?P<review_pk>\d+)/reply/$', views.reply_review, name='reply_review'),
     url(r'^admin/', admin.site.urls),
 ]
 

@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'widget_tweaks',
     'recipe_search',
+    # 'recipe_search.recipe',
+    # 'recipe_search.review',
     'accounts',
 
 
